@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
     end
 
     def new
+        # instantiates an article: this is very important for validation.
         @article = Article.new
     end
 
@@ -26,6 +27,11 @@ class ArticlesController < ApplicationController
         # with strong params instead:
         @article = Article.new(params.require(:article).permit(:title, :description))
         if @article.save
+
+            # confirmation message:
+            # to display the flash[:notice] alter application.html.erb view
+            flash[:notice] = "Article was created successfully."
+
             # to redirect to the individual post page once its posted use this (rails is smart enough to grab id without specifying): 
             redirect_to @article
             # to redirect to the whole list of articles use this:

@@ -7,6 +7,11 @@
   </head>
 
   <body>
+  <%# handling flash messages: %>
+  <% flash.each do |name, message| %>
+      <%= message %>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
