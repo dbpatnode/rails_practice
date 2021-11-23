@@ -16,6 +16,22 @@ class ArticlesController < ApplicationController
     end
 
     def create
+        # use this line to check params after form has been submitted(from articles/new.html.erb):
+        # render plain: params[:article]
+
+        # this wont work because we need STRONG PARAMS:
+        # @article = Article.new(title: params[:article].title, description: params[:article].description)
+
+        # with strong params instead:
+        @article = Article.new(params.require(:article).permit(:title, :description))
+        @article.save
+        # byebug
+        
+        # to redirect to the individual post page once its posted use this (rails is smart enough to grab id without specifying): 
+        redirect_to @article
+        
+        # to redirect to the whole list of articles use this:
+        # redirect_to '/articles'
     end
 
 
