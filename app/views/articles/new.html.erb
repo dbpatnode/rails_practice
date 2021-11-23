@@ -1,0 +1,20 @@
+<h1>Create a new Article</h1>
+<%# scope assigns it to the proper controller %>
+<%# url assigns it to the correct endpoints %>
+<%# local sets it to standard http post as opposed to default remote ajax post %>
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  Form contents
+    <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </p>
+
+    <p>
+        <%= form.label :description %><br>
+        <%= form.text_area :description %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
