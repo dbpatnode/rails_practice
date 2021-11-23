@@ -1,9 +1,19 @@
 <h1>Create a new Article</h1>
+
+<%# if invalid trigger warning message  %>
+<% if @article.errors.any? %>
+    <h2>Looks like there were some errors:</h2>
+    <ul>
+        <% @article.errors.full_messages.each do |error_message|%>
+            <li><%= error_message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%# scope assigns it to the proper controller %>
 <%# url assigns it to the correct endpoints %>
 <%# local sets it to standard http post as opposed to default remote ajax post %>
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
-  Form contents
     <p>
         <%= form.label :title %><br>
         <%= form.text_field :title %>

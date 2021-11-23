@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
     end
 
     def new
+        @article = Article.new
     end
 
     def create
@@ -24,14 +25,16 @@ class ArticlesController < ApplicationController
 
         # with strong params instead:
         @article = Article.new(params.require(:article).permit(:title, :description))
-        @article.save
-        # byebug
-        
-        # to redirect to the individual post page once its posted use this (rails is smart enough to grab id without specifying): 
-        redirect_to @article
-        
-        # to redirect to the whole list of articles use this:
-        # redirect_to '/articles'
+        if @article.save
+            # to redirect to the individual post page once its posted use this (rails is smart enough to grab id without specifying): 
+            redirect_to @article
+            # to redirect to the whole list of articles use this:
+            # redirect_to '/articles'
+        else
+            # if the input doesnt meet the validations then re-render new.
+            # new is short for new.html.erb
+            render 'new'
+        end
     end
 
 
