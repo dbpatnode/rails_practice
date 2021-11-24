@@ -12,7 +12,11 @@
             <tbody>
                 <td><%= article.title %></td>
                 <td><%= article.description %></td>
-                <td>Some Action</td>
+                <%# connecting the all the funcitonality to the frontend: %>
+                <td><%= button_to 'Delete', article_path(article), method: :delete %></td>
+                <td><%= button_to 'view', article_path(article), method: :get %></td>
+                <td><%= button_to 'Edit', edit_article_path(articles), method: :get%></td>
+                
             </tbody>
     <% end %>
 </table>
