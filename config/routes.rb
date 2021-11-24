@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   # :index - shows all articles (GET)
   # :show - shows individual articles(GET)
   # :new and create - allows for creation of new content (:new - GET, :create - POST)
-  resources :articles, only: [:show, :index, :new, :create]
+  # :edit and update - changing/updating existing thing.
+  
+  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
 end

@@ -1,0 +1,30 @@
+<h1>Update Article</h1>
+
+<% if @article.errors.any? %>
+    <h2>Looks like there were some errors:</h2>
+    <ul>
+        <% @article.errors.full_messages.each do |error_message|%>
+            <li><%= error_message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%# scope assigns it to the proper controller %>
+<%# url assigns it to the correct endpoints %>
+<%# local sets it to standard http post as opposed to default remote ajax post %>
+<%# form_with(model: @article, local: true) gives access to the individual article based on id(check difference from new.html.erb) %>
+<%= form_with(model: @article, local: true) do |form| %>
+    <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+    </p>
+
+    <p>
+        <%= form.label :description %><br>
+        <%= form.text_area :description %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
