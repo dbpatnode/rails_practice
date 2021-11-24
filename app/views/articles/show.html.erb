@@ -1,3 +1,17 @@
-<h1>Articles</h1>
-<p><strong>Title:</strong><%= @article.title %></p>
+<nav style ="display:flex; gap: 10px">
+    <p><%= link_to 'Home', root_path(), method: :get %></p> 
+    <p>|</p>
+    <p><%= link_to 'About ', about_path(@articles), method: :get%></p> 
+    <p>|</p>  
+    <p><%= link_to 'Articles', articles_path(@articles), method: :get%></p>
+</nav>
+
+<h1><%= @article.title %></h1>
 <p><strong>Description:</strong><%= @article.description %></p>
+
+<span style="display:flex; gap: 5px">
+    <%= button_to 'Edit', edit_article_path(@article), method: :get%>
+    <%= button_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure you want to delete this article?"} %>
+</span>
+
+<p><%= button_to 'Back to all Articles', articles_path(@articles), method: :get%></p>

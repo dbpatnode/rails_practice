@@ -1,2 +1,7 @@
+<nav style ="display:flex; gap: 10px">
+    <p><%= link_to 'Home', root_path(), method: :get %></p> 
+    <p>|</p>  
+    <p><%= link_to 'Articles', articles_path(@articles), method: :get%></p>
+</nav>
+
 <h1>Welcome to the about page</h1>
-<a href = '/'>Home</a>

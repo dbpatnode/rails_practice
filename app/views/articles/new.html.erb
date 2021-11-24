@@ -1,3 +1,11 @@
+<nav style ="display:flex; gap: 10px">
+    <p><%= link_to 'Home', root_path(), method: :get %></p> 
+    <p>|</p>
+    <p><%= link_to 'About ', about_path(@articles), method: :get%></p> 
+    <p>|</p>  
+    <p><%= link_to 'Articles', articles_path(@articles), method: :get%></p>
+</nav>
+
 <h1>Create a new Article</h1>
 
 <%# if invalid trigger warning message  %>
@@ -28,3 +36,5 @@
         <%= form.submit %>
     </p>
 <% end %>
+
+<p><%= button_to 'Back to all Articles', articles_path(@articles), method: :get%></p>
