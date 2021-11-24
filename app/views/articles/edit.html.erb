@@ -9,8 +9,7 @@
     </ul>
 <% end %>
 
-<%# scope assigns it to the proper controller %>
-<%# url assigns it to the correct endpoints %>
+
 <%# local sets it to standard http post as opposed to default remote ajax post %>
 <%# form_with(model: @article, local: true) gives access to the individual article based on id(check difference from new.html.erb) %>
 <%= form_with(model: @article, local: true) do |form| %>

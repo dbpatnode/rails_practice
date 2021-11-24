@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
 
         if @article.update(params.require(:article).permit(:title, :description))
             # confirmation message:
-            # to display the flash[:notice] alter application.html.erb view
+            # to display the flash[:notice] check out commented code in application.html.erb view.
             flash[:notice] = "Article was updated successfully."
 
             # to redirect to the individual post page once its posted use this (rails is smart enough to grab id without specifying): 
@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
             # redirect_to '/articles'
         else 
             # if the input doesnt meet the validations then re-render new.
-            # new is short for new.html.erb
+            # edit is short for edit.html.erb
             render 'edit'
         end
     end
