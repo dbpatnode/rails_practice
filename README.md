@@ -17,9 +17,12 @@ TO USE RAILS CONSOLE: ```rails c```
 
 TO CHECK ROUTES: ```rails routes --expanded```
 
-TO CREATE NEW MIGRATION: ```rails g migration <create_whatveryourmaking>```
+TO CREATE NEW MIGRATION: ```rails g migration create_whatveryourmaking```
     this creates a migration file within the db that you can use to change schema
     at this point you can navigate to the migrate folder located within the db folder and add the table data properties within in the db folder
     once the properties have been set run : ```rails db:migrate```
 ONCE THE MIGRATION HAS BEEN SUCCESSFULLY MADE NAVIGATE TO THE MODELS FILE AND CREATE A FILE NAMED THE SAME WAY YOUR TABLE WAS IN THIS CASE: ```whateveryourmaking.rb```
+TO ADD A NEW COLUMN TO SCHEMA SIMPLY RUN:```rails g migration add_column_name_to_whateveryourmaking```
+    within the new migration file created (found in db/migrate) add this within the change block for whatever data your adding: 
+    ```add_column :whateveryourmaking, :new_data_column, :data_type``` (data will be something like text, int, float etc. )
 

@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
     def update
         # we need to grab the specific article we want to update by the id:
         @article = Article.find(params[:id])
-
+        @article.user = User.first
         if @article.update(params.require(:article).permit(:title, :description))
             # confirmation message:
             # to display the flash[:notice] check out commented code in application.html.erb view.
