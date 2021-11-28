@@ -8,7 +8,7 @@
 <table>
     <thead>
         <tr>
-            <th>Title</th>
+            <th colspan="2">Title</th>
             <th>Description</th>
             <th  colspan="3">Actions</th>
         </tr>
@@ -16,7 +16,9 @@
 
     <% @articles.each do |article| %>
             <tbody>
+                
                 <td><%= article.title %></td>
+                <td>By <%= article.user.username %></td>
                 <td><%= article.description %></td>
 
                 <%# connecting the all the funcitonality to the frontend: %>

@@ -7,6 +7,7 @@
 </nav>
 
 <h1><%= @article.title %></h1>
+<p>By <%= @article.user.username %></p>
 <p><strong>Description:</strong><%= @article.description %></p>
 
 <span style="display:flex; gap: 5px">
