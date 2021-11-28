@@ -9,6 +9,9 @@ TO USE RAILS CONSOLE: ```rails c```
     ```updated_whatever = Whatevermodel.first.update(datakey1:'updated value'``` updates the first variable
      ```updated_whatever.save``` saves the newly updated variable to the database
      ```updated_whatever.destroy``` deletes user from the databse
+     ```updated_whatever.valid?```checks if it passes validations set in models file
+     ```updated_whatever.errors.full_messages```displays validation error messages (the instance must be saved before this will work)
+    ```reload!``` reloads rail console while inside of it 
     ```exit``` leaves rail console
 
 
